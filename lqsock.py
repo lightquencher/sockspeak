@@ -38,6 +38,7 @@ class Sock():
             print("Connected to: " + self.t_host)
         except Exception as msg:
             print("Connecting error: " + str(msg))
+    # Try connect first, if you can't connect then it will host a server instead
     def try_conn(self):
         try:
             try:
